@@ -1,0 +1,31 @@
+/* CardPizza.css */
+.pizza-card {
+  min-width: 280px;
+  max-width: 350px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.pizza-card .card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.pizza-card .btn {
+  font-size: 0.95rem;
+}
+
+/* Make internal sections flush */
+.pizza-card .card-body {
+  padding: 0.75rem 1rem 0.5rem 1rem; /* reduce padding */
+}
+.pizza-card .list-group-item {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+.pizza-card .card-footer {
+  padding-top: 0.6rem;
+  padding-bottom: 0.75rem;
+}
+.pizza-card .card, .pizza-card .list-group, .pizza-card .card-body {
+  border: 0; /* remove inner borders so they appear flush */
+}
