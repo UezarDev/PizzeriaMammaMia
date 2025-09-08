@@ -1,0 +1,13 @@
+$theme-colors: (
+  // Pizza-inspired palette
+  "primary": #FFCC00,   // cheese yellow
+  "secondary": #D2691E, // pepperoni orange
+  "success": #3a8a3a,   // basil/green
+  "info": #bf8b53,      // golden crust (warm yellow-brown)
+  "warning": #FF5733,   // tomato sauce (red)
+  "danger": #b71c1c,    // pepperoni dark red
+  "light": #f8f5eb,     // pale/cream
+  "dark": #2b2b2b       // charcoal
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";

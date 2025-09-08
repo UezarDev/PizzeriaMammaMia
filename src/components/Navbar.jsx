@@ -9,20 +9,20 @@ const Navbar = () => {
     <nav className="navbar navbar-dark bg-dark px-3 d-flex justify-content-between align-items-center" style={{ minHeight: '56px' }}>
       <div className="d-flex align-items-center gap-2">
         <span className="navbar-brand mb-0 h1">Pizzería Mamma Mia!</span>
-        <button className="btn btn-outline-warning btn-sm">🍕 Home</button>
+        <button className="btn btn-outline-primary btn-sm">🍕 Home</button>
         {token ? (
           <>
-            <button className="btn btn-outline-warning btn-sm">🔓 Profile</button>
-            <button className="btn btn-outline-warning btn-sm">🔒 Logout</button>
+            <button className="btn btn-outline-primary btn-sm">🔓 Profile</button>
+            <button className="btn btn-outline-primary btn-sm">🔒 Logout</button>
           </>
         ) : (
           <>
-            <button className="btn btn-outline-warning btn-sm">🔐 Login</button>
-            <button className="btn btn-outline-warning btn-sm">🔐 Register</button>
+            <button className="btn btn-outline-primary btn-sm">🔐 Login</button>
+            <button className="btn btn-outline-primary btn-sm">🔐 Register</button>
           </>
         )}
       </div>
-      <button className="btn btn-outline-info btn-sm">
+      <button className="btn btn-outline-success btn-sm">
         🛒 Total: ${formatCurrency(total)}
       </button>
     </nav>
