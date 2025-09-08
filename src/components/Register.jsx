@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import './Register.css';
+import React, { useState, useEffect } from 'react';
+import './Form.css';
 
-const Register = () => {
+const Register = ({ onPageChange }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
@@ -39,10 +39,18 @@ const Register = () => {
       setStatus('error');
     }
   };
+  useEffect(() => {
+    if (status === 'success') {
+      const timer = setTimeout(() => { //2 second delay
+				onPageChange("login");
+			}, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [status, onPageChange]);
 
   return (
     <div className='center-container'>
-      <div className="register-root">
+      <div className="form-root">
         <h2 className="mb-3">Registro</h2>
         <form className="register-form" onSubmit={handleSubmit} noValidate>
           <div className="mb-3">
@@ -93,7 +101,9 @@ const Register = () => {
         </form>
   
         {status === 'success' && (
-          <div className="alert alert-success mt-3 mb-0" role="status">Registro completado con éxito.</div>
+          <div className="alert alert-success mt-3 mb-0" role="status">
+            Registro completado con éxito.<br></br>Redireccionando a <strong>Iniciar sesión</strong>.
+            </div>
         )}
         {status === 'error' && (
           <div className="alert alert-danger mt-3 mb-0" role="alert">Hay errores en el formulario. Por favor corrígelos.</div>
