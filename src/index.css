@@ -13,10 +13,10 @@
 
   /* Color palette (change colors here) */
   --color-text: rgba(255, 255, 255, 0.87);
-  --color-bg: #242424;
   --color-disabled: #666666;
   --color-disabled-bg: #3a3a3a;
-  --color-accent: #ffef64;
+  --color-accent: #ddb35a;
+  --color-accent-text: #213547;
   --color-accent-hover: #f2e253;
   --color-accent-active: #d3c22e;
   --color-link: var(--color-accent);
@@ -31,6 +31,33 @@
   --bs-btn-active-border-color: var(--color-text) !important;
   --bs-btn-disabled-bg: var(--color-disabled-bg) !important;
   --bs-btn-disabled-border-color: var(--color-disabled-bg) !important;
+
+  --btn-hover-amount: 8px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+::-moz-selection {
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+/* opcional: asegurar inputs/textarea también */
+input::selection,
+textarea::selection,
+select::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+input::-moz-selection,
+textarea::-moz-selection,
+select::-moz-selection {
+  background: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 /* Light theme overrides */
@@ -41,6 +68,10 @@
     --color-link-hover: #747bff;
     --button-bg: #f9f9f9;
   }
+}
+
+.btn:hover {
+  box-shadow: 0 0 0 var(--btn-hover-amount) rgba(0, 0, 0, 0.25);
 }
 
 /* Global typography & layout */

@@ -47,7 +47,7 @@ const Login = ({ onPageChange, onLoginSuccess }) => {
 
 	return (
 		<div className="center-container">
-			<div className="form-root">
+			<div className="form-root bg-dark text-light">
 				<h2 className="mb-3">Iniciar sesión</h2>
 				<form onSubmit={handleSubmit} noValidate>
 					<div className="mb-3">

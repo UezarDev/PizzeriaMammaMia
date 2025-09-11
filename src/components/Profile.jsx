@@ -3,7 +3,7 @@ import "./Form.css";
 const Profile = () => {
   return (
 		<div className="center-container">
-			<div className="form-root">
+			<div className="form-root bg-dark text-light">
 				<h2 className="mb-3">Perfil</h2>
 				<div className="d-flex gap-3">
 					<img
@@ -14,7 +14,7 @@ const Profile = () => {
 					/>
 					<div>
 						<h4>Nombre Apellido</h4>
-            <p>Domicilio</p>
+						<p>Domicilio</p>
 					</div>
 				</div>
 			</div>

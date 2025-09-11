@@ -7,7 +7,25 @@ $theme-colors: (
   "warning": #FF5733,   // tomato sauce (red)
   "danger": #b71c1c,    // pepperoni dark red
   "light": #f8f5eb,     // pale/cream
-  "dark": #2b2b2b       // charcoal
+  "dark": #242424       // charcoal
 );
+
+// $theme-colors-text: $theme-colors;
+
+$theme-colors-bg-subtle: ();
+@each $name, $color in $theme-colors {
+  $theme-colors-bg-subtle: map-merge(
+    $theme-colors-bg-subtle,
+    ($name: darken($color, 8%))
+  );
+}
+
+$theme-colors-border-subtle: ();
+@each $name, $color in $theme-colors {
+  $theme-colors-border-subtle: map-merge(
+    $theme-colors-border-subtle,
+    ($name: darken($color, 14%))
+  );
+}
 
 @import "../../node_modules/bootstrap/scss/bootstrap";

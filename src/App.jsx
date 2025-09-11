@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import Home from './Home';
+import Footer from './components/Footer';
+import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
-import Footer from './components/Footer';
+import Cart from './components/Cart';
 
 function App() {
 	const [currentPage, setCurrentPage] = useState("login"); // "home" | "login" | "register"
@@ -19,6 +20,8 @@ function App() {
 				return <Register onPageChange={setCurrentPage} />;
 			case "profile":
 				return <Profile />;
+			case "cart":
+				return <Cart onPageChange={setCurrentPage}/>;
 			case "home":
 			default:
 				return <Home />;

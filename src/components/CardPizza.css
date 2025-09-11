@@ -4,6 +4,11 @@
   max-width: 350px;
   margin: 0 auto;
   overflow: hidden;
+  transition: transform 0.1s ease-in-out;
+}
+
+.pizza-card:hover {
+  transform: scale(1.05);
 }
 .pizza-card .card-title {
   font-size: 1.3rem;
@@ -28,4 +33,26 @@
 }
 .pizza-card .card, .pizza-card .list-group, .pizza-card .card-body {
   border: 0; /* remove inner borders so they appear flush */
+}
+
+.ingredient-badge {
+  font-size: 0.85rem;
+  padding: 0.45rem 0.65rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.ingredient-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* make badges slightly darker in dark theme (if you use css variables) */
+@media (prefers-color-scheme: dark) {
+  .ingredient-badge {
+    background: rgba(255,255,255,0.08);
+    color: var(--color-text);
+    border-color: rgba(255,255,255,0.06);
+  }
 }
