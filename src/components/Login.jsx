@@ -98,12 +98,12 @@ const Login = ({ onPageChange, onLoginSuccess }) => {
 				</form>
 
 				{status === "success" && (
-					<div className="alert alert-success mt-3 mb-0" role="status">
-						Inicio de sesión simulado con éxito.<br></br>Redireccionando a <strong>Home</strong>.
+					<div className="alert alert-success bg-transparent mt-3 mb-0" role="status">
+						Inicio de sesión simulado con éxito.<hr></hr>Redireccionando a <strong>Home</strong>.
 					</div>
 				)}
 				{status === "error" && (
-					<div className="alert alert-danger mt-3 mb-0" role="alert">
+					<div className="alert alert-danger bg-transparent mt-3 mb-0" role="alert">
 						Hay errores en el formulario. Por favor corrígelos.
 					</div>
 				)}

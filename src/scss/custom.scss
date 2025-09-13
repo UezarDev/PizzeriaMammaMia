@@ -16,7 +16,7 @@ $theme-colors-bg-subtle: ();
 @each $name, $color in $theme-colors {
   $theme-colors-bg-subtle: map-merge(
     $theme-colors-bg-subtle,
-    ($name: darken($color, 8%))
+    ($name: darken($color, 16%))
   );
 }
 
@@ -24,8 +24,25 @@ $theme-colors-border-subtle: ();
 @each $name, $color in $theme-colors {
   $theme-colors-border-subtle: map-merge(
     $theme-colors-border-subtle,
-    ($name: darken($color, 14%))
+    ($name: darken($color, 16%))
   );
 }
 
+$alert-border-width: 2px;
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+:root {
+  @each $name, $color in $theme-colors {
+    /* base color (so utilities like var(--bs-primary) siguen funcionando) */
+    --bs-#{$name}: #{$color};
+
+    /* subtle background / border variants (generated above) */
+    --bs-#{$name}-bg-subtle: #{map-get($theme-colors-bg-subtle, $name)};
+    --bs-#{$name}-border-subtle: #{map-get($theme-colors-border-subtle, $name)};
+
+    /* text emphasis: use a lighter version of the theme color */
+    $emphasis-color: lighten($color, 22%);
+    --bs-#{$name}-text-emphasis: #{$emphasis-color};
+  }
+}

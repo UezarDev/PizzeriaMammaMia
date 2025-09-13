@@ -53,22 +53,22 @@
   --bs-danger-text-emphasis: rgb(88, 21.2, 27.6);
   --bs-light-text-emphasis: #495057;
   --bs-dark-text-emphasis: #495057;
-  --bs-primary-bg-subtle: rgb(214.2, 171.36, 0);
-  --bs-secondary-bg-subtle: rgb(174.3, 87.15, 24.9);
-  --bs-success-bg-subtle: rgb(45.9265306122, 109.2734693878, 45.9265306122);
-  --bs-info-bg-subtle: rgb(169.9593220339, 118.5762711864, 63.2406779661);
-  --bs-warning-bg-subtle: rgb(255, 53.4, 10.2);
-  --bs-danger-bg-subtle: rgb(147.6142180095, 22.5857819905, 22.5857819905);
-  --bs-light-bg-subtle: rgb(237.4222222222, 229.8888888889, 204.7777777778);
-  --bs-dark-bg-subtle: rgb(15.6, 15.6, 15.6);
-  --bs-primary-border-subtle: rgb(183.6, 146.88, 0);
-  --bs-secondary-border-subtle: rgb(147.525, 73.7625, 21.075);
-  --bs-success-border-subtle: rgb(36.8714285714, 87.7285714286, 36.8714285714);
-  --bs-info-border-subtle: rgb(147.6576271186, 103.0169491525, 54.9423728814);
-  --bs-warning-border-subtle: rgb(234.6, 41.4, 0);
-  --bs-danger-border-subtle: rgb(121.0748815166, 18.5251184834, 18.5251184834);
-  --bs-light-border-subtle: rgb(229.4888888889, 218.5555555556, 182.1111111111);
-  --bs-dark-border-subtle: rgb(0.3, 0.3, 0.3);
+  --bs-primary-bg-subtle: rgb(173.4, 138.72, 0);
+  --bs-secondary-bg-subtle: rgb(138.6, 69.3, 19.8);
+  --bs-success-bg-subtle: rgb(33.8530612245, 80.5469387755, 33.8530612245);
+  --bs-info-bg-subtle: rgb(140.2237288136, 97.8305084746, 52.1762711864);
+  --bs-warning-bg-subtle: rgb(224.4, 39.6, 0);
+  --bs-danger-bg-subtle: rgb(112.228436019, 17.171563981, 17.171563981);
+  --bs-light-bg-subtle: rgb(226.8444444444, 214.7777777778, 174.5555555556);
+  --bs-dark-bg-subtle: black;
+  --bs-primary-border-subtle: rgb(173.4, 138.72, 0);
+  --bs-secondary-border-subtle: rgb(138.6, 69.3, 19.8);
+  --bs-success-border-subtle: rgb(33.8530612245, 80.5469387755, 33.8530612245);
+  --bs-info-border-subtle: rgb(140.2237288136, 97.8305084746, 52.1762711864);
+  --bs-warning-border-subtle: rgb(224.4, 39.6, 0);
+  --bs-danger-border-subtle: rgb(112.228436019, 17.171563981, 17.171563981);
+  --bs-light-border-subtle: rgb(226.8444444444, 214.7777777778, 174.5555555556);
+  --bs-dark-border-subtle: black;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -4819,7 +4819,7 @@ textarea.form-control-lg {
   --bs-alert-margin-bottom: 1rem;
   --bs-alert-color: inherit;
   --bs-alert-border-color: transparent;
-  --bs-alert-border: var(--bs-border-width) solid var(--bs-alert-border-color);
+  --bs-alert-border: 2px solid var(--bs-alert-border-color);
   --bs-alert-border-radius: var(--bs-border-radius);
   --bs-alert-link-color: inherit;
   position: relative;
@@ -11978,4 +11978,62 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+:root {
+  /* base color (so utilities like var(--bs-primary) siguen funcionando) */
+  --bs-primary: #FFCC00;
+  /* subtle background / border variants (generated above) */
+  --bs-primary-bg-subtle: rgb(173.4, 138.72, 0);
+  --bs-primary-border-subtle: rgb(173.4, 138.72, 0);
+  /* text emphasis: use a lighter version of the theme color */
+  --bs-primary-text-emphasis: rgb(255, 226.44, 112.2);
+  /* base color (so utilities like var(--bs-primary) siguen funcionando) */
+  --bs-secondary: #D2691E;
+  /* subtle background / border variants (generated above) */
+  --bs-secondary-bg-subtle: rgb(138.6, 69.3, 19.8);
+  --bs-secondary-border-subtle: rgb(138.6, 69.3, 19.8);
+  /* text emphasis: use a lighter version of the theme color */
+  --bs-secondary-text-emphasis: rgb(235.275, 166.2375, 116.925);
+  /* base color (so utilities like var(--bs-primary) siguen funcionando) */
+  --bs-success: #3a8a3a;
+  /* subtle background / border variants (generated above) */
+  --bs-success-bg-subtle: rgb(33.8530612245, 80.5469387755, 33.8530612245);
+  --bs-success-border-subtle: rgb(33.8530612245, 80.5469387755, 33.8530612245);
+  /* text emphasis: use a lighter version of the theme color */
+  --bs-success-text-emphasis: rgb(112.9163265306, 195.2836734694, 112.9163265306);
+  /* base color (so utilities like var(--bs-primary) siguen funcionando) */
+  --bs-info: #bf8b53;
+  /* subtle background / border variants (generated above) */
+  --bs-info-bg-subtle: rgb(140.2237288136, 97.8305084746, 52.1762711864);
+  --bs-info-border-subtle: rgb(140.2237288136, 97.8305084746, 52.1762711864);
+  /* text emphasis: use a lighter version of the theme color */
+  --bs-info-text-emphasis: rgb(221.4271186441, 194.1491525424, 164.7728813559);
+  /* base color (so utilities like var(--bs-primary) siguen funcionando) */
+  --bs-warning: #FF5733;
+  /* subtle background / border variants (generated above) */
+  --bs-warning-bg-subtle: rgb(224.4, 39.6, 0);
+  --bs-warning-border-subtle: rgb(224.4, 39.6, 0);
+  /* text emphasis: use a lighter version of the theme color */
+  --bs-warning-text-emphasis: rgb(255, 179.4, 163.2);
+  /* base color (so utilities like var(--bs-primary) siguen funcionando) */
+  --bs-danger: #b71c1c;
+  /* subtle background / border variants (generated above) */
+  --bs-danger-bg-subtle: rgb(112.228436019, 17.171563981, 17.171563981);
+  --bs-danger-border-subtle: rgb(112.228436019, 17.171563981, 17.171563981);
+  /* text emphasis: use a lighter version of the theme color */
+  --bs-danger-text-emphasis: rgb(230.2113744076, 92.9886255924, 92.9886255924);
+  /* base color (so utilities like var(--bs-primary) siguen funcionando) */
+  --bs-light: #f8f5eb;
+  /* subtle background / border variants (generated above) */
+  --bs-light-bg-subtle: rgb(226.8444444444, 214.7777777778, 174.5555555556);
+  --bs-light-border-subtle: rgb(226.8444444444, 214.7777777778, 174.5555555556);
+  /* text emphasis: use a lighter version of the theme color */
+  --bs-light-text-emphasis: white;
+  /* base color (so utilities like var(--bs-primary) siguen funcionando) */
+  --bs-dark: #242424;
+  /* subtle background / border variants (generated above) */
+  --bs-dark-bg-subtle: black;
+  --bs-dark-border-subtle: black;
+  /* text emphasis: use a lighter version of the theme color */
+  --bs-dark-text-emphasis: rgb(92.1, 92.1, 92.1);
 }/*# sourceMappingURL=custom.css.map */
