@@ -1,20 +1,7 @@
 import React, { useState } from "react";
 import "./Cart.css";
 import { formatCurrency } from "../utils/formatCurrency";
-
-function Counter({ id, value = 1, onChange }) {
-	// Controlled counter: value comes from parent, onChange called only on user actions
-	const increment = () => onChange?.(id, value + 1);
-	const decrement = () => onChange?.(id, Math.max(0, value - 1));
-
-	return (
-		<div className="d-flex align-items-center">
-			<button className="btn btn-sm btn-outline-danger me-2" onClick={decrement} aria-label="decrease">−</button>
-			<div className="fw-bold text-center px-2 fs-5">{value}</div>
-			<button className="btn btn-sm btn-outline-primary ms-2" onClick={increment} aria-label="increase">+</button>
-		</div>
-	);
-}
+import Counter from "./Counter";
 
 function Cart({ items, setItems, onPageChange }) {
 
@@ -74,7 +61,7 @@ function Cart({ items, setItems, onPageChange }) {
 									<div className="col-4 col-xl-3"></div>
 									<div className="col-8 col-xl-6">
 										<div className="card-body w-100">
-											<h5 className="card-title mb-1">Pizza {item.name}</h5>
+											<h5 className="card-title mb-1 text-capitalize">Pizza {item.name}</h5>
 											<p className="card-text mb-1">Precio: {formatCurrency(item.price)}</p>
 										</div>
 									</div>

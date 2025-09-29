@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { formatCurrency } from '../utils/formatCurrency';
 import './CardPizza.css';
 
-const CardPizza = ({ id, name, price, ingredients, img }) => {
+const CardPizza = ({ id, name, price, ingredients, img, onPageChange, setCurrentPizzaId, addToCart }) => {
+	const [adding, setAdding] = useState(false);
+	const timerRef = useRef(null);
+
+	useEffect(() => {
+		return () => {
+			if (timerRef.current) clearTimeout(timerRef.current);
+		};
+	}, []);
   return (
 		<div className="card rounded-4 h-100 shadow-sm pizza-card text-dark-subtle border-0 bg-dark text-light">
 			{/* image */}
@@ -11,7 +19,7 @@ const CardPizza = ({ id, name, price, ingredients, img }) => {
 			<div className="card-body px-0">
 				{/* title + divider */}
 				<div className="px-3 d-flex border-bottom border-light border-opacity-25">
-					<h5 className="card-title">Pizza {name}</h5>
+					<h5 className="card-title text-capitalize">Pizza {name}</h5>
 				</div>
 				{/* ingredients */}
 				<div>
@@ -44,8 +52,30 @@ const CardPizza = ({ id, name, price, ingredients, img }) => {
 				</div>
 
 				<div className="d-flex justify-content-between">
-					<button className="btn btn-outline-primary btn-sm rounded-3">Ver Más 👀</button>
-					<button className="btn btn-outline-primary btn-sm rounded-3">Añadir 🛒</button>
+					<button
+						className="btn btn-outline-primary btn-sm rounded-3"
+						onClick={() => {
+							onPageChange("pizza");
+							setCurrentPizzaId(id);
+						}}>
+						Ver Más 👀
+					</button>
+															<button
+																className="btn btn-outline-primary btn-sm rounded-3"
+																onClick={() => {
+																	if (adding) return;
+																	setAdding(true);
+																	addToCart?.({ id, name, price, img }, 1);
+																	timerRef.current = setTimeout(() => setAdding(false), 700);
+																}}
+																disabled={adding}
+																aria-disabled={adding}
+															>
+																{adding && (
+																	<span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+																)}
+																Añadir 🛒
+															</button>
 				</div>
 			</div>
 		</div>

@@ -8,16 +8,40 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
 import Cart from './components/Cart';
+import Pizza from './components/Pizza';
 
 import { pizzaCart as initialCart } from "./utils/pizzas.js";
 
 
 function App() {
-	const [currentPage, setCurrentPage] = useState("login"); // "home" | "login" | "register"
+	const [currentPage, setCurrentPage] = useState("login");
 	const [token, setToken] = useState(false); // Cambia a true para simular usuario logueado
   const [items, setItems] = useState(() => initialCart.slice());
+  const [currentPizzaId, setCurrentPizzaId] = useState("p001");
 
   const total = useMemo(() => items.reduce((acc,item)=>acc+item.price*(item.count??1),0), [items]);
+
+	const addToCart = (pizzaToAdd, qty = 1) => {
+		if (!pizzaToAdd || !pizzaToAdd.id) return;
+		setItems((prev) => {
+			const idx = prev.findIndex(
+				(it) => it.id && it.id.toString().toLowerCase() === pizzaToAdd.id.toString().toLowerCase()
+			);
+			if (idx !== -1) {
+				return prev.map((it, i) => (i === idx ? { ...it, count: (it.count ?? 1) + qty } : it));
+			}
+			return [
+				...prev,
+				{
+					id: pizzaToAdd.id,
+					name: pizzaToAdd.name,
+					price: pizzaToAdd.price,
+					count: qty,
+					img: pizzaToAdd.img,
+				},
+			];
+		});
+	};
 
 	const renderMain = () => {
 		switch (currentPage) {
@@ -29,9 +53,17 @@ function App() {
 				return <Profile />;
 			case "cart":
 				return <Cart items={items} setItems={setItems} onPageChange={setCurrentPage}/>;
-			case "home":
-			default:
-				return <Home />;
+			case "pizza":
+				return <Pizza id={currentPizzaId} addToCart={addToCart} />;
+					case "home":
+					default:
+						return (
+							<Home
+								onPageChange={setCurrentPage}
+								setCurrentPizzaId={setCurrentPizzaId}
+								addToCart={addToCart}
+							/>
+						);
 		}
 	};
 
