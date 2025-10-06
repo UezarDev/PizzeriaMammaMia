@@ -11,12 +11,12 @@ const Navbar = ({ token, setToken, total }) => {
 			<span className="navbar-brand mb-0 h1">Pizzería Mamma Mia!</span>
 			<div className="d-none d-md-flex justify-content-between flex-grow-1 gap-2">
 				<div className="d-flex gap-2">
-					<Link className="btn btn-outline-primary btn-sm" to="/">
+					<Link className="btn btn-outline-primary btn-sm" to="/PizzeriaMammaMia/">
 						🍕 Home
 					</Link>
 					{token ? (
 						<>
-							<Link className="btn btn-outline-primary btn-sm" to="/profile">
+							<Link className="btn btn-outline-primary btn-sm" to="/PizzeriaMammaMia/profile">
 								🔓 Profile
 							</Link>
 								<button className="btn btn-outline-primary btn-sm" onClick={() => setToken(false)}>
@@ -25,10 +25,10 @@ const Navbar = ({ token, setToken, total }) => {
 						</>
 					) : (
 						<>
-							<Link className="btn btn-outline-primary btn-sm" to="/login">
+							<Link className="btn btn-outline-primary btn-sm" to="/PizzeriaMammaMia/login">
 								🔐 Login
 							</Link>
-							<Link className="btn btn-outline-primary btn-sm" to="/register">
+							<Link className="btn btn-outline-primary btn-sm" to="/PizzeriaMammaMia/register">
 								🔐 Register
 							</Link>
 						</>
@@ -39,7 +39,7 @@ const Navbar = ({ token, setToken, total }) => {
 							🛒 Empty
 						</button>
 					) : (
-						<Link className="btn btn-outline-primary btn-sm" to="/cart">
+						<Link className="btn btn-outline-primary btn-sm" to="/PizzeriaMammaMia/cart">
 							🛒 Total: ${formatCurrency(total)}
 						</Link>
 					)}
@@ -67,12 +67,12 @@ const Navbar = ({ token, setToken, total }) => {
 				</div>
 				<div className="offcanvas-body">
 					<div className="d-flex flex-column gap-2">
-						<Link className="btn btn-outline-primary" to="/">
+						<Link className="btn btn-outline-primary" to="/PizzeriaMammaMia/">
 							🍕 Home
 						</Link>
 						{token ? (
 							<>
-								<Link className="btn btn-outline-primary" to="/profile">
+								<Link className="btn btn-outline-primary" to="/PizzeriaMammaMia/profile">
 									🔓 Profile
 								</Link>
 								<button className="btn btn-outline-primary" onClick={() => setToken(false)}>
@@ -81,10 +81,10 @@ const Navbar = ({ token, setToken, total }) => {
 							</>
 						) : (
 							<>
-								<Link className="btn btn-outline-primary" to="/login">
+								<Link className="btn btn-outline-primary" to="/PizzeriaMammaMia/login">
 									🔐 Login
 								</Link>
-								<Link className="btn btn-outline-primary" to="/register">
+								<Link className="btn btn-outline-primary" to="/PizzeriaMammaMia/register">
 									🔐 Register
 								</Link>
 							</>
@@ -94,7 +94,7 @@ const Navbar = ({ token, setToken, total }) => {
 								🛒 Empty
 							</button>
 						) : (
-							<Link className="btn btn-outline-primary" to="/cart">
+							<Link className="btn btn-outline-primary" to="/PizzeriaMammaMia/cart">
 								🛒 Total: ${formatCurrency(total)}
 							</Link>
 						)}

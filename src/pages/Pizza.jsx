@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Counter from './Counter';
-import { formatCurrency } from '../utils/formatCurrency';
+import Counter from '../components/Counter.jsx';
+import { formatCurrency } from '../utils/formatCurrency.js';
 import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { pizzas as fallbackPizzas } from '../utils/pizzas.js';

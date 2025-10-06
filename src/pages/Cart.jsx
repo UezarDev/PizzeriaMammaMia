@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import "./Cart.css";
+import "../components/Cart.css";
 import { formatCurrency } from "../utils/formatCurrency";
-import Counter from "./Counter";
+import Counter from "../components/Counter";
 
 function Cart({ items, setItems }) {
 
@@ -55,7 +55,7 @@ function Cart({ items, setItems }) {
 						return (
 							<div className="card mb-4 custom-card bg-dark text-light" key={item.id}>
 								<div className="floating-img-wrapper btnimg">
-									<Link to={`/pizza/${item.id}`}>
+									<Link to={`/PizzeriaMammaMia/pizza/${item.id}`}>
 										<img src={item.img} className="floating-img" alt={item.name} style={{ cursor: "pointer" }} />
 									</Link>
 								</div>

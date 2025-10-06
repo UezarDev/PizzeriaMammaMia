@@ -1,4 +1,4 @@
-import "./Form.css";
+import "../components/Form.css";
 
 const Profile = () => {
   return (

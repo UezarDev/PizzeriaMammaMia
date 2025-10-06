@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Header from './Header';
-import CardPizza from './CardPizza';
+import Header from '../components/Header.jsx';
+import CardPizza from '../components/CardPizza.jsx';
 import { pizzas as fallbackPizzas } from '../utils/pizzas.js';
 
 const Home = ({ addToCart }) => {

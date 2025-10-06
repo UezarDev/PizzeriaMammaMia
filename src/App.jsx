@@ -3,14 +3,14 @@ import { useMemo } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './components/Home';
-import Cart from './components/Cart';
-import Pizza from './components/Pizza';
-import Login from './components/Login';
-import Register from './components/Register';
-import Profile from './components/Profile';
-import NotFound from './components/NotFound';
-import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home.jsx';
+import Cart from './pages/Cart.jsx';
+import Pizza from './pages/Pizza.jsx';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+import Profile from './pages/Profile.jsx';
+import NotFound from './pages/NotFound.jsx';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { pizzaCart as initialCart } from "./utils/pizzas.js";
 
@@ -49,13 +49,14 @@ function App() {
 			<Navbar token={token} setToken={setToken} total={total} />
 			<main className="flex-grow-1">
 				<Routes>
-					<Route path="/" element={<Home addToCart={addToCart} />} />
-					<Route path="/cart" element={<Cart items={items} setItems={setItems} />} />
-					<Route path="/pizza/:id" element={<Pizza addToCart={addToCart} />} />
-					<Route path="/login" element={<Login onLoginSuccess={setToken} />} />
-					<Route path="/register" element={<Register />} />
-					<Route path="/profile" element={<Profile />} />
-					<Route path="*" element={<NotFound />} />
+					<Route path="/PizzeriaMammaMia/" element={<Home addToCart={addToCart} />} />
+					<Route path="/PizzeriaMammaMia/cart" element={<Cart items={items} setItems={setItems} />} />
+					<Route path="/PizzeriaMammaMia/pizza/:id" element={<Pizza addToCart={addToCart} />} />
+					<Route path="/PizzeriaMammaMia/login" element={<Login onLoginSuccess={setToken} />} />
+					<Route path="/PizzeriaMammaMia/register" element={<Register />} />
+					<Route path="/PizzeriaMammaMia/profile" element={<Profile />} />
+					<Route path="/PizzeriaMammaMia/404" element={<NotFound />} />
+					<Route path="*" element={<Navigate to="/PizzeriaMammaMia/404" replace />} />
 				</Routes>
 			</main>
 			<Footer />

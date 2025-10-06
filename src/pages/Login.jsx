@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './Form.css';
-import { use } from 'react';
+import "../components/Form.css";
 
 const Login = ({ onLoginSuccess }) => {
 	const [email, setEmail] = useState("");

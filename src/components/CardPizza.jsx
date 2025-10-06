@@ -53,7 +53,7 @@ const CardPizza = ({ id, name, price, ingredients, img, addToCart }) => {
 				</div>
 
 				<div className="d-flex justify-content-between">
-					<Link className="btn btn-outline-primary btn-sm rounded-3" to={`/pizza/${id}`}>Ver Más 👀</Link>
+					<Link className="btn btn-outline-primary btn-sm rounded-3" to={`/PizzeriaMammaMia/pizza/${id}`}>Ver Más 👀</Link>
 															<button
 																className="btn btn-outline-primary btn-sm rounded-3"
 																onClick={() => {
