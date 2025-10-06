@@ -4,20 +4,20 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import Cart from './components/Cart';
+import Pizza from './components/Pizza';
 import Login from './components/Login';
 import Register from './components/Register';
 import Profile from './components/Profile';
-import Cart from './components/Cart';
-import Pizza from './components/Pizza';
+import NotFound from './components/NotFound';
+import { Routes, Route } from 'react-router-dom';
 
 import { pizzaCart as initialCart } from "./utils/pizzas.js";
 
 
 function App() {
-	const [currentPage, setCurrentPage] = useState("login");
 	const [token, setToken] = useState(false); // Cambia a true para simular usuario logueado
-  const [items, setItems] = useState(() => initialCart.slice());
-  const [currentPizzaId, setCurrentPizzaId] = useState("p001");
+	const [items, setItems] = useState(() => initialCart.slice());
 
   const total = useMemo(() => items.reduce((acc,item)=>acc+item.price*(item.count??1),0), [items]);
 
@@ -43,34 +43,21 @@ function App() {
 		});
 	};
 
-	const renderMain = () => {
-		switch (currentPage) {
-			case "login":
-				return <Login onPageChange={setCurrentPage} onLoginSuccess={setToken} />;
-			case "register":
-				return <Register onPageChange={setCurrentPage} />;
-			case "profile":
-				return <Profile />;
-			case "cart":
-				return <Cart items={items} setItems={setItems} onPageChange={setCurrentPage}/>;
-			case "pizza":
-				return <Pizza id={currentPizzaId} addToCart={addToCart} />;
-					case "home":
-					default:
-						return (
-							<Home
-								onPageChange={setCurrentPage}
-								setCurrentPizzaId={setCurrentPizzaId}
-								addToCart={addToCart}
-							/>
-						);
-		}
-	};
-
+	// Use react-router to render pages
 	return (
 		<div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
-			<Navbar onPageChange={setCurrentPage} token={token} setToken={setToken} total={total} />
-			<main className="flex-grow-1">{renderMain()}</main>
+			<Navbar token={token} setToken={setToken} total={total} />
+			<main className="flex-grow-1">
+				<Routes>
+					<Route path="/" element={<Home addToCart={addToCart} />} />
+					<Route path="/cart" element={<Cart items={items} setItems={setItems} />} />
+					<Route path="/pizza/:id" element={<Pizza addToCart={addToCart} />} />
+					<Route path="/login" element={<Login onLoginSuccess={setToken} />} />
+					<Route path="/register" element={<Register />} />
+					<Route path="/profile" element={<Profile />} />
+					<Route path="*" element={<NotFound />} />
+				</Routes>
+			</main>
 			<Footer />
 		</div>
 	);

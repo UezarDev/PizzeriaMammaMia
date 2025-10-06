@@ -13,14 +13,12 @@
   height: 120px;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0px 20px rgba(0, 0, 0, 0.4);
   background: #fff;
   z-index: 4;
   transition: all 0.1s ease-in-out;
 }
 
 .custom-card:hover .floating-img-wrapper {
-  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.6);
   transform: rotate(1deg);
   height: 130px;
 }

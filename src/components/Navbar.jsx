@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { formatCurrency } from '../utils/formatCurrency';
 
-const Navbar = ({ onPageChange, token, setToken, total }) => {
+const Navbar = ({ token, setToken, total }) => {
 
   return (
 		<nav
@@ -10,43 +11,38 @@ const Navbar = ({ onPageChange, token, setToken, total }) => {
 			<span className="navbar-brand mb-0 h1">Pizzería Mamma Mia!</span>
 			<div className="d-none d-md-flex justify-content-between flex-grow-1 gap-2">
 				<div className="d-flex gap-2">
-					<button className="btn btn-outline-primary btn-sm" onClick={() => onPageChange("home")}>
+					<Link className="btn btn-outline-primary btn-sm" to="/">
 						🍕 Home
-					</button>
+					</Link>
 					{token ? (
 						<>
-							<button className="btn btn-outline-primary btn-sm" onClick={() => onPageChange("profile")}>
+							<Link className="btn btn-outline-primary btn-sm" to="/profile">
 								🔓 Profile
-							</button>
-							<button
-								className="btn btn-outline-primary btn-sm"
-								onClick={() => {
-									setToken(false);
-									onPageChange("login");
-								}}>
-								🔒 Logout
-							</button>
+							</Link>
+								<button className="btn btn-outline-primary btn-sm" onClick={() => setToken(false)}>
+									🔒 Logout
+								</button>
 						</>
 					) : (
 						<>
-							<button className="btn btn-outline-primary btn-sm" onClick={() => onPageChange("login")}>
+							<Link className="btn btn-outline-primary btn-sm" to="/login">
 								🔐 Login
-							</button>
-							<button className="btn btn-outline-primary btn-sm" onClick={() => onPageChange("register")}>
+							</Link>
+							<Link className="btn btn-outline-primary btn-sm" to="/register">
 								🔐 Register
-							</button>
+							</Link>
 						</>
 					)}
 				</div>
-				{total === 0 ? (
-					<button className="btn btn-outline-primary btn-sm" disabled>
-						🛒 Empty
-					</button>
-				) : (
-					<button className="btn btn-outline-primary btn-sm" onClick={() => onPageChange("cart")}>
-						🛒 Total: ${formatCurrency(total)}
-					</button>
-				)}
+					{total === 0 ? (
+						<button className="btn btn-outline-primary btn-sm" disabled>
+							🛒 Empty
+						</button>
+					) : (
+						<Link className="btn btn-outline-primary btn-sm" to="/cart">
+							🛒 Total: ${formatCurrency(total)}
+						</Link>
+					)}
 			</div>
 			<div className="d-flex d-md-none align-items-end gap-2">
 				<button
@@ -71,31 +67,26 @@ const Navbar = ({ onPageChange, token, setToken, total }) => {
 				</div>
 				<div className="offcanvas-body">
 					<div className="d-flex flex-column gap-2">
-						<button className="btn btn-outline-primary" onClick={() => onPageChange("home")}>
+						<Link className="btn btn-outline-primary" to="/">
 							🍕 Home
-						</button>
+						</Link>
 						{token ? (
 							<>
-								<button className="btn btn-outline-primary" onClick={() => onPageChange("profile")}>
+								<Link className="btn btn-outline-primary" to="/profile">
 									🔓 Profile
-								</button>
-								<button
-									className="btn btn-outline-primary"
-									onClick={() => {
-										setToken(false);
-										onPageChange("login");
-									}}>
+								</Link>
+								<button className="btn btn-outline-primary" onClick={() => setToken(false)}>
 									🔒 Logout
 								</button>
 							</>
 						) : (
 							<>
-								<button className="btn btn-outline-primary" onClick={() => onPageChange("login")}>
+								<Link className="btn btn-outline-primary" to="/login">
 									🔐 Login
-								</button>
-								<button className="btn btn-outline-primary" onClick={() => onPageChange("register")}>
+								</Link>
+								<Link className="btn btn-outline-primary" to="/register">
 									🔐 Register
-								</button>
+								</Link>
 							</>
 						)}
 						{total === 0 ? (
@@ -103,9 +94,9 @@ const Navbar = ({ onPageChange, token, setToken, total }) => {
 								🛒 Empty
 							</button>
 						) : (
-							<button className="btn btn-outline-primary" onClick={() => onPageChange("cart")}>
+							<Link className="btn btn-outline-primary" to="/cart">
 								🛒 Total: ${formatCurrency(total)}
-							</button>
+							</Link>
 						)}
 					</div>
 				</div>

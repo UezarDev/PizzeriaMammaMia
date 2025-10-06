@@ -3,7 +3,7 @@ import Header from './Header';
 import CardPizza from './CardPizza';
 import { pizzas as fallbackPizzas } from '../utils/pizzas.js';
 
-const Home = ({ onPageChange, setCurrentPizzaId, addToCart }) => {
+const Home = ({ addToCart }) => {
 	const [pizzas, setPizzas] = useState(null);
 
 	useEffect(() => {
@@ -44,14 +44,12 @@ const Home = ({ onPageChange, setCurrentPizzaId, addToCart }) => {
 				<div className="row g-4">
 					{pizzas.map((pizza) => (
 						<div className="col-12 col-md-4" key={pizza.id}>
-												<CardPizza
+																		<CardPizza
 													id={pizza.id}
 													name={pizza.name}
 													price={pizza.price}
 													ingredients={pizza.ingredients}
 													img={pizza.img}
-													onPageChange={onPageChange}
-													setCurrentPizzaId={setCurrentPizzaId}
 													addToCart={addToCart}
 												/>
 						</div>

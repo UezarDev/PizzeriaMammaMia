@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { formatCurrency } from '../utils/formatCurrency';
 import './CardPizza.css';
 
-const CardPizza = ({ id, name, price, ingredients, img, onPageChange, setCurrentPizzaId, addToCart }) => {
+const CardPizza = ({ id, name, price, ingredients, img, addToCart }) => {
 	const [adding, setAdding] = useState(false);
 	const timerRef = useRef(null);
 
@@ -52,14 +53,7 @@ const CardPizza = ({ id, name, price, ingredients, img, onPageChange, setCurrent
 				</div>
 
 				<div className="d-flex justify-content-between">
-					<button
-						className="btn btn-outline-primary btn-sm rounded-3"
-						onClick={() => {
-							onPageChange("pizza");
-							setCurrentPizzaId(id);
-						}}>
-						Ver Más 👀
-					</button>
+					<Link className="btn btn-outline-primary btn-sm rounded-3" to={`/pizza/${id}`}>Ver Más 👀</Link>
 															<button
 																className="btn btn-outline-primary btn-sm rounded-3"
 																onClick={() => {

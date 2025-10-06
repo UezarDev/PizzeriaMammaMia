@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Form.css';
 
-const Register = ({ onPageChange }) => {
+const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
@@ -39,14 +39,9 @@ const Register = ({ onPageChange }) => {
       setStatus('error');
     }
   };
-  useEffect(() => {
-    if (status === 'success') {
-      const timer = setTimeout(() => { //2 second delay
-				onPageChange("login");
-			}, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [status, onPageChange]);
+	useEffect(() => {
+		// no navigation after registration; keep showing success message
+	}, [status]);
 
   return (
 		<div className="center-container">

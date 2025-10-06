@@ -71,7 +71,15 @@ select::-moz-selection {
 }
 
 .btn:hover {
-  box-shadow: 0 0 0 var(--btn-hover-amount) rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 var(--btn-hover-amount) rgba(0, 0, 0, 0.3);
+}
+
+.btnimg {
+  transition: box-shadow 0.25s ease, transform 0.12s ease;
+}
+
+.btnimg:hover {
+  box-shadow: 0 0 0 var(--btn-hover-amount) rgba(0, 0, 0, 0.3), 0 0 0 calc(var(--btn-hover-amount) * 1.25) var(--bs-dark);
 }
 
 /* Global typography & layout */

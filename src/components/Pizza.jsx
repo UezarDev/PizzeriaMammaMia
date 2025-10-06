@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Counter from './Counter';
 import { formatCurrency } from '../utils/formatCurrency';
 import { useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import { pizzas as fallbackPizzas } from '../utils/pizzas.js';
 
-const Pizza = ({ id = 'p001', addToCart }) => {
+const Pizza = ({ addToCart }) => {
+	const params = useParams();
+	const id = params.id || 'p001';
 	const [pizza, setPizza] = useState(null);
 	const [quantity, setQuantity] = useState(1);
 	const [adding, setAdding] = useState(false);

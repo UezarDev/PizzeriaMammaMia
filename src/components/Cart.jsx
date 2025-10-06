@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import "./Cart.css";
 import { formatCurrency } from "../utils/formatCurrency";
 import Counter from "./Counter";
 
-function Cart({ items, setItems, onPageChange }) {
+function Cart({ items, setItems }) {
 
 	const handleCountChange = (id, value) => {
 		if (value <= 0) {
@@ -34,7 +35,7 @@ function Cart({ items, setItems, onPageChange }) {
 
 							<h6 className="card-subtitle mb-2">Nada que pagar.</h6>
 
-							<button className="btn btn-primary w-100" onClick={() => onPageChange("home")}>
+							<button className="btn btn-primary w-100">
 								Volver a la tienda
 							</button>
 						</div>
@@ -53,8 +54,10 @@ function Cart({ items, setItems, onPageChange }) {
 						const qty = item.count ?? 1;
 						return (
 							<div className="card mb-4 custom-card bg-dark text-light" key={item.id}>
-								<div className="floating-img-wrapper">
-									<img src={item.img} className="floating-img" alt={item.name} />
+								<div className="floating-img-wrapper btnimg">
+									<Link to={`/pizza/${item.id}`}>
+										<img src={item.img} className="floating-img" alt={item.name} style={{ cursor: "pointer" }} />
+									</Link>
 								</div>
 
 								<div className="row g-0 align-items-end justify-content-center">

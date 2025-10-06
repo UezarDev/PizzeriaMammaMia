@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Form.css';
 import { use } from 'react';
 
-const Login = ({ onPageChange, onLoginSuccess }) => {
+const Login = ({ onLoginSuccess }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState({});
@@ -34,14 +34,13 @@ const Login = ({ onPageChange, onLoginSuccess }) => {
 	};
 
   useEffect(() => {
-    if (status === "success") {
-      const timer = setTimeout(() => { //2 second delay
-        onLoginSuccess(true);
-        onPageChange("home");
-      }, 2000);
+		if (status === "success") {
+			const timer = setTimeout(() => {
+				onLoginSuccess(true);
+			}, 2000);
 
-      return () => clearTimeout(timer);
-    }
+			return () => clearTimeout(timer);
+		}
   }, [status]);
 
 
